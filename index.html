@@ -48,6 +48,8 @@
         <a href="#home" data-route="home">صفحه خانه</a>
         <a href="#show" data-route="show">نمایش صبرا</a>
         <a href="#tickets" data-route="tickets">تهیه بلیط</a>
+        <a href="#donation" data-route="donation">نذر فرهنگی</a>
+        <a href="#news" data-route="news">اخبار پیرامونی</a>
         <a href="#about" data-route="about">درباره ما</a>
       </nav>
 
@@ -66,6 +68,7 @@
         <span class="theme-toggle__label">تم شب</span>
       </button>
     </header>
+    <button class="menu-scrim" type="button" aria-label="بستن منو" tabindex="-1"></button>
 
     <main id="main-content">
       <section class="page page--home is-active" data-page="home" aria-labelledby="home-title">
@@ -176,7 +179,6 @@
           <article class="story-copy reveal">
             <span class="story-copy__label">خلاصه روایت</span>
             <div>
-              <span class="quote-mark" aria-hidden="true">«</span>
               <p>
                 نمایش «صبرا» با حضور آرمان، جوانی امروزی، در مسجد آغاز می‌شود. آرمان درباره وقایع پس از
                 رحلت پیامبر اکرم(ص) پرسش‌ها و ابهام‌هایی دارد و در گفت‌وگو با دوستانش، کیان و ماهان،
@@ -190,8 +192,212 @@
       </section>
 
       <section class="page page--tickets" data-page="tickets" aria-labelledby="tickets-title" hidden>
-        <h1 class="visually-hidden" id="tickets-title">تهیه بلیط</h1>
-        <div class="empty-stage" aria-hidden="true"></div>
+        <div class="content-wrap tickets-wrap">
+          <header class="ticket-hero reveal">
+            <div class="ticket-hero__copy">
+              <span class="section-index">۰۲ / تهیه بلیط</span>
+              <h1 id="tickets-title">تئاتر آیینی هنری صبرا</h1>
+              <p>برای انتخاب زمان اجرا و ثبت مشخصات، مراحل زیر را تکمیل کنید.</p>
+            </div>
+            <div class="ticket-hero__poster" aria-label="جایگاه پوستر؛ تصویر به‌زودی افزوده می‌شود">
+              <span>جایگاه پوستر</span>
+            </div>
+          </header>
+
+          <section class="ticket-booking reveal" aria-labelledby="booking-title">
+            <div class="ticket-dates" role="radiogroup" aria-label="انتخاب تاریخ اجرا">
+              <label class="date-option">
+                <input type="radio" name="ticket-date" value="سه‌شنبه ۲۸ مهرماه" form="ticket-form" checked />
+                <span>سه‌شنبه<small>۲۸ مهرماه</small></span>
+              </label>
+              <label class="date-option">
+                <input type="radio" name="ticket-date" value="چهارشنبه ۲۹ مهرماه" form="ticket-form" />
+                <span>چهارشنبه<small>۲۹ مهرماه</small></span>
+              </label>
+              <label class="date-option">
+                <input type="radio" name="ticket-date" value="پنج‌شنبه ۳۰ مهرماه" form="ticket-form" />
+                <span>پنج‌شنبه<small>۳۰ مهرماه</small></span>
+              </label>
+              <label class="date-option">
+                <input type="radio" name="ticket-date" value="جمعه ۱ آبان‌ماه" form="ticket-form" />
+                <span>جمعه<small>۱ آبان‌ماه</small></span>
+              </label>
+              <label class="date-option">
+                <input type="radio" name="ticket-date" value="شنبه ۲ آبان‌ماه" form="ticket-form" />
+                <span>شنبه<small>۲ آبان‌ماه</small></span>
+              </label>
+            </div>
+
+            <div class="booking-intro">
+              <span class="section-index">فرم ثبت‌نام</span>
+              <h2 id="booking-title">رزرو اجرای صبرا</h2>
+              <p>
+                با تکمیل فرم زیر، به ازای هر شماره همراه امکان دریافت یک بلیت برای شما فراهم خواهد شد؛
+                صمیمانه از شما تقاضا داریم در صورت امکان و به اندازه توانتان، با انتخاب یکی از بسته‌های
+                حمایتی، ما را در برگزاری هرچه بهتر این رویداد و تداوم این حرکت فرهنگی یاری فرمایید.
+              </p>
+            </div>
+
+            <form class="ticket-form" id="ticket-form">
+              <div class="form-grid">
+                <label class="form-field form-field--wide">
+                  <span>نام و نام خانوادگی</span>
+                  <input type="text" name="full-name" autocomplete="name" required />
+                </label>
+
+                <label class="form-field">
+                  <span>سن</span>
+                  <input type="number" name="age" min="5" max="120" inputmode="numeric" required />
+                </label>
+
+                <label class="form-field">
+                  <span>شماره تلفن همراه</span>
+                  <input type="tel" name="phone" inputmode="tel" autocomplete="tel" pattern="[0۰][9۹][0-9۰-۹]{9}" placeholder="۰۹xxxxxxxxx" required />
+                </label>
+
+                <label class="form-field form-field--full">
+                  <span>آدرس <small>(اختیاری)</small></span>
+                  <textarea name="address" rows="3" autocomplete="street-address"></textarea>
+                </label>
+
+                <label class="form-field form-field--full">
+                  <span>نحوه آشنایی با تئاتر صبرا</span>
+                  <select name="discovery" data-discovery-select required>
+                    <option value="" selected disabled>یک گزینه را انتخاب کنید</option>
+                    <option value="social">فضای مجازی</option>
+                    <option value="friends">معرفی توسط دوستان</option>
+                    <option value="local">تبلیغات محلی</option>
+                    <option value="other">سایر موارد</option>
+                  </select>
+                </label>
+
+                <label class="form-field form-field--full conditional-field" data-discovery-other hidden>
+                  <span>سایر موارد <small>حداکثر ۱۰۰ کلمه</small></span>
+                  <textarea name="discovery-other" rows="4" data-word-limit="100"></textarea>
+                  <small class="word-counter" data-word-counter>۰ از ۱۰۰ کلمه</small>
+                </label>
+              </div>
+
+              <fieldset class="support-fieldset">
+                <legend>حمایت از تولیدکنندگان این نمایش</legend>
+                <div class="support-options">
+                  <label><input type="radio" name="support" value="0" checked /><span>عدم پرداخت هزینه</span></label>
+                  <label><input type="radio" name="support" value="50000" /><span>نذر ۵۰٬۰۰۰ تومانی</span></label>
+                  <label><input type="radio" name="support" value="150000" /><span>نذر ۱۵۰٬۰۰۰ تومانی</span></label>
+                  <label><input type="radio" name="support" value="250000" /><span>نذر ۲۵۰٬۰۰۰ تومانی</span></label>
+                  <label><input type="radio" name="support" value="350000" /><span>نذر ۳۵۰٬۰۰۰ تومانی</span></label>
+                  <label><input type="radio" name="support" value="other" data-support-other-trigger /><span>سایر مبالغ</span></label>
+                </div>
+                <label class="custom-amount conditional-field" data-custom-amount hidden>
+                  <span>مبلغ دلخواه</span>
+                  <span class="amount-input"><input type="number" name="custom-amount" min="1000" max="50000000" step="1000" inputmode="numeric" /><b>تومان</b></span>
+                  <small>حداکثر ۵۰٬۰۰۰٬۰۰۰ تومان</small>
+                </label>
+              </fieldset>
+
+              <button class="submit-registration" type="submit">
+                <span>تکمیل فرم ثبت‌نام</span>
+                <span aria-hidden="true">←</span>
+              </button>
+            </form>
+          </section>
+        </div>
+      </section>
+
+      <section class="page page--donation" data-page="donation" aria-labelledby="donation-title" hidden>
+        <div class="content-wrap donation-wrap">
+          <header class="donation-heading reveal">
+            <span class="section-index">۰۳ / همراهی</span>
+            <h1 id="donation-title">نذر فرهنگی</h1>
+          </header>
+
+          <article class="donation-intro reveal">
+            <p>
+              نمایش صبرا برای اولین بار به همت دغدغه‌مندی‌های اعضای مجموعه رهروان شهدا برای گسترش
+              فرهنگ فاطمی بر پایه تاریخ و در قالب یکی از ارزشمندترین جلوه‌های هنر یعنی تئاتر به روی
+              صحنه می‌رود. اصلی‌ترین حامی ما در این جریان کمک‌های مالی دغدغه‌مندان این حوزه و شما
+              مخاطبان گرامی هستید. شماره کارت و شماره شبا جهت کمک شما عزیزان در ذیل این متن ارائه شده
+              تا بتوانیم حتی با کوچک‌ترین کمک‌ها قدم‌های بزرگی برای نشر معارف اهل بیت برداریم.
+            </p>
+          </article>
+
+          <div class="donation-details reveal">
+            <button
+              class="payment-card"
+              type="button"
+              data-copy-value="5041721092987362"
+              data-copy-label="شماره کارت"
+              aria-label="کپی شماره کارت ۵۰۴۱۷۲۱۰۹۲۹۸۷۳۶۲"
+            >
+              <span class="payment-card__topline">
+                <span class="payment-card__label">شماره کارت</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                  <rect x="8" y="8" width="11" height="11" rx="2"></rect>
+                  <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
+                </svg>
+              </span>
+              <strong class="payment-card__value" dir="ltr">5041 7210 9298 7362</strong>
+              <span class="payment-card__hint">برای کپی لمس کنید</span>
+            </button>
+
+            <button
+              class="payment-card"
+              type="button"
+              data-copy-value="IR660150001828701119593651"
+              data-copy-label="شماره شبا"
+              aria-label="کپی شماره شبا آی‌آر ۶۶۰۱۵۰۰۰۱۸۲۸۷۰۱۱۱۹۵۹۳۶۵۱"
+            >
+              <span class="payment-card__topline">
+                <span class="payment-card__label">شماره شبا</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                  <rect x="8" y="8" width="11" height="11" rx="2"></rect>
+                  <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
+                </svg>
+              </span>
+              <strong class="payment-card__value payment-card__value--iban" dir="ltr">IR66 0150 0018 2870 1119 5936 51</strong>
+              <span class="payment-card__hint">برای کپی لمس کنید</span>
+            </button>
+          </div>
+
+          <p class="account-holder reveal">به نام مجموعه فرهنگی هنری صبرا</p>
+        </div>
+      </section>
+
+      <section class="page page--news" data-page="news" aria-labelledby="news-title" hidden>
+        <div class="content-wrap news-wrap">
+          <header class="news-heading reveal">
+            <span class="section-index">۰۴ / روایت روز</span>
+            <h1 id="news-title">اخبار پیرامونی</h1>
+            <p>رویدادها، پشت صحنه و روایت‌های تاریخی پیرامون نمایش صبرا</p>
+          </header>
+
+          <div class="news-grid">
+            <article class="news-card reveal">
+              <span class="news-card__number">۰۱</span>
+              <div>
+                <span class="news-card__meta">تازه‌های صبرا</span>
+                <h2>تیزر رسمی تئاتر آئینی هنری صبرا منتشر شد</h2>
+                <p>متن کامل این خبر به‌زودی در این بخش منتشر می‌شود.</p>
+              </div>
+            </article>
+            <article class="news-card reveal">
+              <span class="news-card__number">۰۲</span>
+              <div>
+                <span class="news-card__meta">پشت صحنه</span>
+                <h2>آماده ساز سالن اجرا</h2>
+                <p>متن کامل این خبر به‌زودی در این بخش منتشر می‌شود.</p>
+              </div>
+            </article>
+            <article class="news-card reveal">
+              <span class="news-card__number">۰۳</span>
+              <div>
+                <span class="news-card__meta">تاریخ و روایت</span>
+                <h2>«ابوعبیده جراح» نامی آشنا در میان ورق‌های تاریخ</h2>
+                <p>متن کامل این خبر به‌زودی در این بخش منتشر می‌شود.</p>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section class="page page--about" data-page="about" aria-labelledby="about-title" hidden>
@@ -203,7 +409,7 @@
           />
           <div class="about-hero__veil"></div>
           <div class="about-hero__title reveal">
-            <span class="section-index">۰۲ / مجموعه</span>
+            <span class="section-index">۰۵ / مجموعه</span>
             <h1 id="about-title">درباره ما</h1>
           </div>
         </div>
@@ -219,6 +425,31 @@
         </div>
       </section>
     </main>
+
+    <div class="registration-modal" data-registration-modal hidden>
+      <button class="registration-modal__backdrop" type="button" data-modal-close aria-label="بستن پنجره"></button>
+      <section class="registration-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="registration-success-title">
+        <button class="modal-close" type="button" data-modal-close aria-label="بستن پنجره">×</button>
+        <span class="success-mark" aria-hidden="true">✓</span>
+        <h2 id="registration-success-title">ثبت‌نام شما با موفقیت انجام شد</h2>
+        <p>کد پیگیری شما:</p>
+        <button
+          class="tracking-code"
+          type="button"
+          data-copy-value="5558852"
+          data-copy-label="کد پیگیری"
+          aria-label="کپی کد پیگیری ۵۵۵۸۸۵۲"
+        >
+          <strong dir="ltr">5558852</strong>
+          <span>برای کپی لمس کنید</span>
+        </button>
+        <p class="registration-note">
+          در حفظ و نگهداری کد بالا کوشا باشید؛ کد پیگیری به منزله کد ورود شما به سالن نمایش است.
+        </p>
+      </section>
+    </div>
+
+    <div class="copy-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <script src="app.js"></script>
   </body>
