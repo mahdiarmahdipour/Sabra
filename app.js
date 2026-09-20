@@ -215,45 +215,6 @@
     });
   });
 
-  const storyVisual = document.querySelector(".story-visual");
-  let storyAnimationFrame;
-
-  function updateStoryHeight() {
-    storyAnimationFrame = undefined;
-    if (!storyVisual || storyVisual.closest("[hidden]")) return;
-
-    const compactLayout = window.innerWidth <= 620;
-    const maxHeight = compactLayout
-      ? 330
-      : Math.min(520, Math.max(300, window.innerWidth * 0.42));
-    const minHeight = compactLayout ? 238 : Math.max(300, maxHeight * 0.68);
-
-    if (reducedMotion) {
-      storyVisual.style.setProperty("--story-height", `${maxHeight}px`);
-      return;
-    }
-
-    const bounds = storyVisual.getBoundingClientRect();
-    const viewportCenter = window.innerHeight / 2;
-    const imageCenter = bounds.top + bounds.height / 2;
-    const distance = Math.abs(imageCenter - viewportCenter);
-    const range = window.innerHeight * 0.9;
-    const rawProgress = 1 - Math.min(distance / range, 1);
-    const easedProgress = rawProgress * rawProgress * (3 - 2 * rawProgress);
-    const height = minHeight + easedProgress * (maxHeight - minHeight);
-    storyVisual.style.setProperty("--story-height", `${height.toFixed(1)}px`);
-  }
-
-  function queueStoryHeight() {
-    if (storyAnimationFrame) return;
-    storyAnimationFrame = window.requestAnimationFrame(updateStoryHeight);
-  }
-
-  window.addEventListener("scroll", queueStoryHeight, { passive: true });
-  window.addEventListener("resize", queueStoryHeight);
-  window.addEventListener("hashchange", queueStoryHeight);
-  queueStoryHeight();
-
   const discoverySelect = document.querySelector("[data-discovery-select]");
   const discoveryOther = document.querySelector("[data-discovery-other]");
   const discoveryOtherInput = discoveryOther?.querySelector("textarea");

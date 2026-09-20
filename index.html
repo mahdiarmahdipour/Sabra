@@ -9,6 +9,8 @@
       content="وب‌سایت رسمی نمایش آیینی صبرا؛ روایتی از پرسش، تاریخ و ایستادگی."
     />
     <title>صبرا | نمایش آیینی</title>
+    <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon-white.svg" />
+    <link rel="apple-touch-icon" href="assets/logo.png" />
     <script>
       (() => {
         const savedTheme = localStorage.getItem("sabra-theme");
@@ -24,7 +26,7 @@
     <a class="skip-link" href="#main-content">پرش به محتوای اصلی</a>
 
     <header class="site-header">
-      <a class="brand" href="#home" data-route="home" aria-label="صبرا، صفحه خانه">
+      <a class="brand" href="#home" data-route="home" aria-label="صبرا، خانه">
         <span class="brand__mark">
           <img src="assets/logo.png" alt="" width="72" height="72" />
         </span>
@@ -45,7 +47,7 @@
       </button>
 
       <nav class="site-nav" id="main-navigation" aria-label="فهرست اصلی">
-        <a href="#home" data-route="home">صفحه خانه</a>
+        <a href="#home" data-route="home">خانه</a>
         <a href="#show" data-route="show">نمایش صبرا</a>
         <a href="#tickets" data-route="tickets">تهیه بلیط</a>
         <a href="#donation" data-route="donation">نذر فرهنگی</a>
@@ -149,33 +151,16 @@
       </section>
 
       <section class="page page--show" data-page="show" aria-labelledby="show-title" hidden>
-        <div class="content-wrap">
-          <header class="page-heading reveal">
+        <header class="show-hero">
+          <img class="show-hero__image" src="assets/story-wide.jpg" alt="جوانی در برابر دری روشن میان فضایی تاریک و شعله‌ور" />
+          <div class="show-hero__shade" aria-hidden="true"></div>
+          <div class="show-hero__content">
             <span class="section-index">۰۱ / نمایش</span>
             <h1 id="show-title">نمایش صبرا</h1>
             <p>روایتی نمایشی از جست‌وجوی حقیقت در دل تاریخ</p>
-          </header>
-
-          <div class="video-shell reveal">
-            <video controls preload="metadata" playsinline poster="assets/hero-2.jpg">
-              <source src="assets/trailer.mp4" type="video/mp4" />
-              مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-            </video>
-            <div class="video-shell__caption">
-              <span>تریلر نمایش</span>
-              <span>صبرا</span>
-            </div>
           </div>
-
-          <figure class="story-visual gradient-map reveal">
-            <img
-              src="assets/story-wide.jpg"
-              alt="جوانی در برابر دری روشن میان فضایی تاریک و شعله‌ور"
-              loading="lazy"
-            />
-            <figcaption>آنجا که پرسش آغاز می‌شود</figcaption>
-          </figure>
-
+        </header>
+        <div class="content-wrap show-content">
           <article class="story-copy reveal">
             <span class="story-copy__label">خلاصه روایت</span>
             <div>
@@ -188,11 +173,21 @@
               </p>
             </div>
           </article>
+          <section class="show-trailer" aria-labelledby="trailer-title">
+            <h2 class="story-copy__label" id="trailer-title">تیزر نمایش صبرا</h2>
+            <div class="video-shell">
+              <video controls preload="metadata" playsinline aria-label="تیزر جدید نمایش صبرا">
+                <source src="assets/trailer-final.mp4" type="video/mp4" />
+                مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+              </video>
+            </div>
+          </section>
         </div>
       </section>
 
-      <section class="page page--tickets" data-page="tickets" aria-labelledby="tickets-title" hidden>
-        <div class="content-wrap tickets-wrap">
+      <section class="page page--tickets" data-page="tickets" aria-label="تهیه بلیط" hidden>
+        <div class="tickets-coming-soon">
+        <div class="content-wrap tickets-wrap" aria-hidden="true" inert>
           <header class="ticket-hero reveal">
             <div class="ticket-hero__copy">
               <span class="section-index">۰۲ / تهیه بلیط</span>
@@ -302,6 +297,8 @@
             </form>
           </section>
         </div>
+          <div class="news-stamp" role="status"><span>به زودی ...</span></div>
+        </div>
       </section>
 
       <section class="page page--donation" data-page="donation" aria-labelledby="donation-title" hidden>
@@ -313,11 +310,13 @@
 
           <article class="donation-intro reveal">
             <p>
-              نمایش صبرا برای اولین بار به همت دغدغه‌مندی‌های اعضای مجموعه رهروان شهدا برای گسترش
-              فرهنگ فاطمی بر پایه تاریخ و در قالب یکی از ارزشمندترین جلوه‌های هنر یعنی تئاتر به روی
-              صحنه می‌رود. اصلی‌ترین حامی ما در این جریان کمک‌های مالی دغدغه‌مندان این حوزه و شما
-              مخاطبان گرامی هستید. شماره کارت و شماره شبا جهت کمک شما عزیزان در ذیل این متن ارائه شده
-              تا بتوانیم حتی با کوچک‌ترین کمک‌ها قدم‌های بزرگی برای نشر معارف اهل بیت برداریم.
+              نمایش «صَبرا» پیش از آنکه تنها یک اثر روی صحنه باشد، قصه‌ای از همدلی آدم‌هایی است که دغدغه‌مندانه کنار هم ایستادند. این روایت تاریخی و آیینی، نه با بودجه‌های کلان نهادها، بلکه با قلب‌ها و دست‌های مردم عادی جان گرفته است. «صَبرا» صدای یک باور است که می‌خواهد در هیاهوی امروز، چراغ یک فرهنگ و هویت را روشن نگه دارد.
+            </p>
+            <p>
+              پیمودن این مسیر دشوار و تأمین هزینه‌های آماده‌سازی این پروژه (که بالغ بر یک میلیارد و سیصد و شصت میلیون تومان برآورد شده)، تا به امروز تنها به پشتوانه وام‌های شخصی و حمایت‌های بی‌دریغ مردمی ممکن شده است. حالا در بخش «نذر فرهنگی»، از شما دعوت می‌کنیم تا در ادامه این راه شریک ما باشید. نذر فرهنگی، یک کمک مالی صرف نیست؛ بلکه دعوتنامه‌ای است برای سهیم شدن در خلق و زنده نگه داشتن اثری که ریشه در تاریخ مشترک همه ما دارد.
+            </p>
+            <p>
+              در این صحنه، بزرگی یا کوچکیِ عددها هیچ تفاوتی ندارد؛ آنچه صحنه ما را روشن می‌کند، حضور و همراهی شماست. با هر میزان از مشارکت، شما هم به یکی از خالقان «صَبرا» تبدیل می‌شوید و سهمی ارزشمند در پاسداشت این میراث فرهنگی و مذهبی خواهید داشت. بیایید با هم، راوی این قصه باشیم.
             </p>
           </article>
 
@@ -325,9 +324,9 @@
             <button
               class="payment-card"
               type="button"
-              data-copy-value="5041721092987362"
+              data-copy-value="6104338963049628"
               data-copy-label="شماره کارت"
-              aria-label="کپی شماره کارت ۵۰۴۱۷۲۱۰۹۲۹۸۷۳۶۲"
+              aria-label="کپی شماره کارت ۶۱۰۴۳۳۸۹۶۳۰۴۹۶۲۸"
             >
               <span class="payment-card__topline">
                 <span class="payment-card__label">شماره کارت</span>
@@ -336,16 +335,16 @@
                   <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
                 </svg>
               </span>
-              <strong class="payment-card__value" dir="ltr">5041 7210 9298 7362</strong>
+              <strong class="payment-card__value" dir="ltr">6104 3389 6304 9628</strong>
               <span class="payment-card__hint">برای کپی لمس کنید</span>
             </button>
 
             <button
               class="payment-card"
               type="button"
-              data-copy-value="IR660150001828701119593651"
+              data-copy-value="IR950120020000009661320773"
               data-copy-label="شماره شبا"
-              aria-label="کپی شماره شبا آی‌آر ۶۶۰۱۵۰۰۰۱۸۲۸۷۰۱۱۱۹۵۹۳۶۵۱"
+              aria-label="کپی شماره شبا آی‌آر ۹۵۰۱۲۰۰۲۰۰۰۰۰۰۹۶۶۱۳۲۰۷۷۳"
             >
               <span class="payment-card__topline">
                 <span class="payment-card__label">شماره شبا</span>
@@ -354,12 +353,12 @@
                   <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
                 </svg>
               </span>
-              <strong class="payment-card__value payment-card__value--iban" dir="ltr">IR66 0150 0018 2870 1119 5936 51</strong>
+              <strong class="payment-card__value payment-card__value--iban" dir="ltr">IR95 0120 0200 0000 9661 3207 73</strong>
               <span class="payment-card__hint">برای کپی لمس کنید</span>
             </button>
           </div>
 
-          <p class="account-holder reveal">به نام مجموعه فرهنگی هنری صبرا</p>
+          <p class="account-holder reveal">به نام محمد حسین توحیدیان</p>
         </div>
       </section>
 
@@ -371,7 +370,8 @@
             <p>رویدادها، پشت صحنه و روایت‌های تاریخی پیرامون نمایش صبرا</p>
           </header>
 
-          <div class="news-grid">
+          <div class="news-coming-soon">
+          <div class="news-grid" aria-hidden="true" inert>
             <article class="news-card reveal">
               <span class="news-card__number">۰۱</span>
               <div>
@@ -396,6 +396,8 @@
                 <p>متن کامل این خبر به‌زودی در این بخش منتشر می‌شود.</p>
               </div>
             </article>
+          </div>
+            <div class="news-stamp" role="status"><span>به زودی ...</span></div>
           </div>
         </div>
       </section>
@@ -423,6 +425,28 @@
             « صبرا » را روی صحنه می‌برد
           </p>
         </div>
+        <section class="social-section" aria-labelledby="social-title">
+          <h2 id="social-title">همراه صبرا باشید</h2>
+          <p>روایت‌های تازه و خبرهای نمایش را از این مسیرها دنبال کنید.</p>
+          <div class="social-grid">
+            <a class="social-card" href="https://t.me/sabra_show" target="_blank" rel="noopener noreferrer">
+              <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.8 3.5 3 10.4c-1.2.5-1.2 1.2-.2 1.5l4.6 1.5 1.7 5.1c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.2-2.1 4.6 3.4c.9.5 1.5.2 1.7-.8L22.2 5c.3-1.3-.5-1.9-1.4-1.5ZM8.2 13l10.5-6.6c.5-.3.9-.1.6.2l-8.7 7.9-.3 3.4L8.2 13Z"/></svg></span>
+              <span><strong>تلگرام صبرا</strong><small dir="ltr">@sabra_show</small></span><span class="social-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="social-card" href="https://ble.ir/join/HWgyaJ7g7t" target="_blank" rel="noopener noreferrer">
+              <span class="social-icon" aria-hidden="true"><span class="bale-logo"></span></span>
+              <span><strong>بله صبرا</strong><small>به جمع همراهان بپیوندید</small></span><span class="social-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="social-card" href="https://www.instagram.com/sabra.show/" target="_blank" rel="noopener noreferrer">
+              <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+              <span><strong>اینستاگرام صبرا</strong><small dir="ltr">@sabra.show</small></span><span class="social-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="social-card" href="sms:300040054005">
+              <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-9l-6 3V6a2 2 0 0 1 1-2Z"/><path d="M8 9h9M8 13h6"/></svg></span>
+              <span><strong>سامانه پیامکی صبرا</strong><small dir="ltr">300040054005</small></span><span class="social-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
       </section>
     </main>
 

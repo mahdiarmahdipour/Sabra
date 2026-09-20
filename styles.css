@@ -724,34 +724,56 @@ html[data-theme="dark"] .gradient-map::after {
   opacity: 0.34;
 }
 
-.story-visual {
-  width: 100vw;
-  height: var(--story-height, clamp(300px, 42vw, 520px));
-  margin-block: clamp(90px, 12vw, 160px) 0;
-  margin-inline: calc(50% - 50vw);
+.show-hero {
+  position: relative;
+  isolation: isolate;
+  height: clamp(500px, 43vw, 740px);
   overflow: hidden;
-  border-radius: 0;
-  box-shadow: var(--shadow);
-  will-change: height;
-  transition: height 110ms linear;
+  background: #061011;
+  color: #fff;
 }
 
-.story-visual img {
+.show-hero__image,
+.show-hero__shade {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
-.story-visual figcaption {
-  position: absolute;
-  z-index: 2;
-  inset: auto auto 30px 34px;
-  padding: 8px 13px;
-  background: rgba(0, 0, 0, 0.67);
-  color: #fff;
-  font-size: 0.76rem;
-  backdrop-filter: blur(8px);
+.show-hero__image { object-fit: cover; object-position: center; }
+.show-hero__shade {
+  background: linear-gradient(0deg, rgba(3, 9, 10, .96), rgba(3, 9, 10, .56) 37%, transparent 78%),
+    linear-gradient(270deg, rgba(3, 9, 10, .34), transparent 60%);
 }
+
+.show-hero__content {
+  position: absolute;
+  inset-inline: max(28px, calc((100% - 1112px) / 2));
+  bottom: clamp(38px, 5vw, 76px);
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+}
+
+.show-hero__content .section-index { color: #94edf1; }
+.show-hero__content h1 {
+  margin: 0;
+  font-size: clamp(3.1rem, 5.6vw, 5.8rem);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+.show-hero__content p {
+  margin: 0;
+  color: #f0ffff;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.9;
+}
+.show-hero__content p::before { content: "*"; margin-inline-end: 8px; color: #94edf1; }
+.show-content { padding-block-start: 0; }
+.show-trailer { margin-block-start: clamp(70px, 9vw, 120px); }
+.show-trailer .video-shell video { height: auto; aspect-ratio: auto; max-height: 80svh; }
 
 .story-copy {
   width: min(1060px, 100%);
@@ -780,8 +802,11 @@ html[data-theme="dark"] .gradient-map::after {
   font-size: clamp(1.18rem, 2vw, 1.62rem);
   font-weight: 400;
   line-height: 2.25;
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: right;
+  text-justify: none;
+  letter-spacing: normal;
+  word-spacing: normal;
+  font-kerning: normal;
 }
 
 .page--tickets {
@@ -1175,6 +1200,32 @@ html[data-theme="dark"] .gradient-map::after {
   padding-block-start: clamp(44px, 7vw, 84px);
 }
 
+.news-coming-soon { position: relative; isolation: isolate; overflow: hidden; margin-block-start: 36px; }
+.tickets-coming-soon { position: relative; isolation: isolate; overflow: hidden; height: clamp(600px, 80svh, 820px); }
+.news-coming-soon .news-grid,
+.tickets-coming-soon .tickets-wrap { filter: blur(9px); opacity: .4; user-select: none; pointer-events: none; }
+.news-stamp {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  background: linear-gradient(0deg, var(--bg), transparent 26%, transparent 80%, var(--bg));
+}
+.news-stamp span {
+  padding: 16px 44px 22px;
+  border: 3px solid currentColor;
+  outline: 1px solid currentColor;
+  outline-offset: 7px;
+  border-radius: 6px;
+  color: var(--accent);
+  background: var(--surface-glass);
+  font-size: clamp(2.5rem, 6vw, 5.1rem);
+  font-weight: 900;
+  line-height: 1.4;
+  transform: rotate(-9deg);
+}
+
 .news-card {
   display: grid;
   grid-template-columns: 88px minmax(0, 1fr);
@@ -1372,9 +1423,11 @@ body.modal-open {
   font-size: clamp(1.15rem, 2.15vw, 1.65rem);
   font-weight: 450;
   line-height: 2.25;
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: right;
+  letter-spacing: normal;
+  word-spacing: normal;
 }
+.donation-intro p + p { margin-block-start: 32px; }
 
 .donation-details {
   display: grid;
@@ -1566,6 +1619,28 @@ body.modal-open {
   letter-spacing: -0.035em;
   text-wrap: balance;
 }
+
+.social-section { width: min(1120px, calc(100% - 48px)); margin-inline: auto; padding-block: 0 110px; }
+.social-section h2 { margin: 0 0 12px; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800; }
+.social-section > p { margin: 0 0 36px; color: var(--text-soft); }
+.social-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+}
+.social-card:hover { border-color: var(--accent); transform: translateY(-3px); background: color-mix(in srgb, var(--accent) 5%, var(--surface)); }
+.social-icon { display: grid; place-items: center; flex: 0 0 50px; height: 50px; border-radius: 50%; background: color-mix(in srgb, var(--accent) 9%, transparent); color: var(--accent); }
+.social-icon svg { width: 26px; height: 26px; }
+.bale-logo { display: block; width: 30px; height: 30px; background: currentColor; mask: url("assets/bale.svg") center / contain no-repeat; -webkit-mask: url("assets/bale.svg") center / contain no-repeat; }
+.social-card strong { display: block; font-size: 1.15rem; font-weight: 700; }
+.social-card small { display: block; width: fit-content; margin-top: 6px; color: var(--text-soft); font-size: .83rem; }
+.social-arrow { margin-inline-start: auto; color: var(--accent); font-size: 1.45rem; }
 
 .reveal {
   animation: reveal-in 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
@@ -1852,14 +1927,13 @@ body.modal-open {
     display: none;
   }
 
-  .story-visual {
-    height: var(--story-height, 330px);
-    margin-block-start: 80px;
-  }
-
-  .story-visual figcaption {
-    inset: auto auto 18px 18px;
-  }
+  .show-hero { height: 560px; }
+  .show-hero__content { inset-inline: 24px; bottom: 40px; gap: 16px; }
+  .show-content { padding-block-start: 0; }
+  .social-grid { grid-template-columns: 1fr; }
+  .social-section { width: calc(100% - 32px); padding-bottom: 76px; }
+  .social-card { gap: 16px; }
+  .news-stamp span { padding-inline: 26px; }
 
   .story-copy {
     padding-block-start: 70px;
