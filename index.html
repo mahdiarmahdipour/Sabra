@@ -20,7 +20,7 @@
         document.documentElement.dataset.theme = savedTheme || preferredTheme;
       })();
     </script>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20261018-tickets" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">پرش به محتوای اصلی</a>
@@ -185,13 +185,32 @@
         </div>
       </section>
 
-      <section class="page page--tickets" data-page="tickets" aria-label="تهیه بلیط" hidden>
-        <div class="tickets-coming-soon">
+      <section class="page page--tickets" data-page="tickets" aria-labelledby="tickets-title" hidden>
+        <div class="tickets-portal">
+          <div class="ticket-invite">
+            <span class="ticket-invite__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+                <path d="M4 8h24v5a3 3 0 0 0 0 6v5H4v-5a3 3 0 0 0 0-6V8Z"></path>
+                <path d="M21 8v3m0 3v4m0 3v3" stroke-linecap="round"></path>
+              </svg>
+            </span>
+            <span class="section-index">۰۲ / تهیه بلیط</span>
+            <h1 id="tickets-title">تهیه بلیط نمایش صبرا</h1>
+            <p>برای تهیه بلیط و ثبت‌نام نمایش صبرا، از طریق تیوال اقدام کنید.</p>
+            <a class="ticket-invite__button" href="https://www.tiwall.com/p/sabra">
+              <span>تهیه بلیط و ثبت‌نام در تیوال</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5m6 6-6-6 6-6"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="tickets-coming-soon" hidden>
         <div class="content-wrap tickets-wrap" aria-hidden="true" inert>
           <header class="ticket-hero reveal">
             <div class="ticket-hero__copy">
               <span class="section-index">۰۲ / تهیه بلیط</span>
-              <h1 id="tickets-title">تئاتر آیینی هنری صبرا</h1>
+              <h1 id="ticket-form-title">تئاتر آیینی هنری صبرا</h1>
               <p>برای انتخاب زمان اجرا و ثبت مشخصات، مراحل زیر را تکمیل کنید.</p>
             </div>
             <div class="ticket-hero__poster" aria-label="جایگاه پوستر؛ تصویر به‌زودی افزوده می‌شود">
